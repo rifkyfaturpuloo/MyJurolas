@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Jurolas - Bantu Cari Jurusan | SMKN 12 Surabaya Powered By PPLG ROLAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img
+          src="https://smkn12surabaya.sch.id/images/logo%20smkn%2012.png"
+          alt="Logo SMKN 12 Surabaya"
+        />
+        <div class="brand-copy">
+          <p class="tagline">SMKN 12 Surabaya - POWERED BY PPLG ROLAS</p>
+          <h1>My Jurolas - Bantu Cari Jurusan</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="#panduan" class="ghost-btn small">Panduan</a>
+        <a href="#tes" class="primary-btn small">Mulai Tes</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="panduan">
+        <div class="hero-text">
+          <p class="badge">Tes Kepribadian & Minat Netral</p>
+          <h2>Temukan Jurusan SMKN 12 yang paling sejalan dengan dirimu.</h2>
+          <p>
+            Jawab 50 pernyataan reflektif dengan skala 1–7 untuk mendapatkan
+            rekomendasi jurusan yang objektif dan profesional. Sistem ini
+            menggabungkan pemetaan kepribadian, minat, dan gaya kerja tanpa
+            mengarahkanmu ke jurusan tertentu.
+          </p>
+          <ul class="hero-list">
+            <li>50 pertanyaan netral bergaya psikometrik</li>
+            <li>15 jurusan seni, kriya, dan teknologi</li>
+            <li>Desain modern dengan progress real-time</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="#tes" class="primary-btn">Mulai Sekarang</a>
+            <a href="#hasil" class="ghost-btn">Lihat Hasil Terbaru</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-card">
+            <span>50 Soal Netral</span>
+            <strong>Skala 1–7</strong>
+            <p>Jawabanmu dikonversi menjadi skor psikometrik.</p>
+          </div>
+          <div class="hero-card">
+            <span>15 Jurusan</span>
+            <strong>Analisis Multi-Map</strong>
+            <p>Setiap jawaban memberi bobot berbeda untuk setiap jurusan.</p>
+          </div>
+          <div class="hero-card">
+            <span>Insight Personal</span>
+            <strong>Rekomendasi + Tips</strong>
+            <p>Hasil lengkap dengan deskripsi dan opsi “Ulangi Tes”.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="insight-grid">
+        <article class="intro-card">
+          <h3>Cara Mengisi</h3>
+          <p>
+            Pilih angka 1–7 untuk setiap pernyataan. 1 berarti sangat setuju,
+            sementara 7 berarti sangat tidak setuju.
+          </p>
+        </article>
+        <article class="intro-card">
+          <h3>Skoring Dinamis</h3>
+          <p>
+            Sistem mengaitkan tiap jawaban dengan beberapa jurusan secara
+            proporsional agar hasil sulit ditebak namun tetap akurat.
+          </p>
+        </article>
+        <article class="intro-card">
+          <h3>Tips</h3>
+          <p>
+            Jawab berdasar kebiasaanmu. Tidak ada jawaban benar atau salah,
+            hanya cerminan dari caramu bekerja dan berkarya.
+          </p>
+        </article>
+      </section>
+
+      <section class="quiz" id="tes">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Tes Netral 50 Soal</p>
+              <h2>Refleksi Minat & Gaya Kerja</h2>
+            </div>
+            <div class="progress-wrapper">
+              <div class="progress">
+                <div id="progressBar" class="progress-bar"></div>
+              </div>
+              <span id="progressText">0/50 terjawab</span>
+            </div>
+          </div>
+          <p class="helper-text">
+            Gunakan skala 1 (Sangat Setuju) sampai 7 (Sangat Tidak Setuju).
+            Pertanyaan akan terbuka bertahap per paket 10 butir setelah kamu
+            menyelesaikan bagian sebelumnya, sehingga fokusmu tetap terarah.
+          </p>
+          <div id="alertBox" class="alert hidden"></div>
+          <div id="questionsContainer" class="questions"></div>
+          <div class="panel-footer">
+            <button class="primary-btn full" id="hasilBtn">
+              Tampilkan Rekomendasi
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="hasil" class="hasil-section">
+        <div class="panel slim">
+          <div id="hasilContent">
+            <h2>Hasil Rekomendasi Jurusan</h2>
+            <p>Jawab seluruh 50 pertanyaan untuk membuka analisis personal.</p>
+          </div>
+          <button id="resetBtn" class="ghost-btn hidden">Ulangi Tes</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © 2025 SMKN 12 Surabaya - PPLG SMKN 12 Surabaya · Platform latihan memilih jurusan resmi yang
+        mendukung eksplorasi minat calon siswa.
+      </p>
+    </footer>
+
+    <script src="script/main.js"></script>
+  </body>
+</html>

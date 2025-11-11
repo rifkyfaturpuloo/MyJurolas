@@ -1,0 +1,36 @@
+Bantu Cari Jurusan SMKN 12 Surabaya
+===================================
+
+1. Tujuan Program
+-----------------
+Menyediakan tes psikometrik netral berisi 50 pernyataan gaya MBTI untuk membantu calon siswa SMKN 12 Surabaya menemukan jurusan paling selaras dengan kepribadian, minat, serta gaya kerjanya dalam suasana profesional dan objektif.
+
+2. Cara Kerja Sistem Tes
+------------------------
+1. Pengguna membaca panduan di halaman utama, lalu menjawab 50 pernyataan skalatis 1 (Sangat Setuju) sampai 7 (Sangat Tidak Setuju) pada komponen radio berbentuk lingkaran yang terbuka bertahap setiap 10 soal agar fokus tetap terjaga.
+2. Setiap jawaban otomatis memberi bobot berbeda ke 15 jurusan melalui pemetaan `questionMapping`, menggunakan operasi aritmatika untuk menghasilkan skor psikometrik yang sulit ditebak.
+3. Ketika tombol **Tampilkan Rekomendasi** ditekan, skor dihitung ulang, dibandingkan menggunakan operator perbandingan, dan hasil jurusan dengan skor tertinggi ditampilkan memakai `innerHTML` + template literal `${}` lengkap dengan deskripsi, daftar peringkat, serta tombol **Ulangi Tes**.
+
+3. Operator yang Digunakan
+--------------------------
+- Aritmatika: `+`, `*`, `/` untuk penjumlahan bobot, pengali preferensi, dan perhitungan progres (terjawab ÷ total soal).
+- Assignment: `=` dan `+=` saat menginisialisasi skor jurusan dan memperbarui nilainya secara kumulatif.
+- Comparison: `>`, `<`, `==` pada validasi jumlah jawaban serta proses memilih jurusan dengan skor paling tinggi.
+
+4. Struktur Folder
+------------------
+- `index.html` — struktur UI (header dengan logo, hero, panel tes, hasil, footer).
+- `style/style.css` — tema biru tua `#204474`, aksen kuning `#ECEC74`, animasi transisi, dan layout responsif.
+- `script/main.js` — daftar 50 soal netral, pemetaan bobot 15 jurusan, logika progres, hasil, dan fungsi reset.
+- `penjelasan.txt` — dokumentasi singkat proyek (file ini).
+
+5. Screenshot Hasil (Placeholder)
+--------------------------------
+![Placeholder hasil](https://via.placeholder.com/900x520?text=Preview+Bantu+Cari+Jurusan)
+
+6. Anggota & Peran
+------------------
+- Rifky Pratama — Programmer Utama (arsitektur soal, logika skoring, integrasi UI).
+- Nadine Aulia — Asisten Programmer (validasi input, kontrol progres, pengujian fungsional).
+- Satria Nugraha — UI/UX Designer (desain modern biru–kuning, responsif, animasi transisi).
+- Dewi Larasati — Dokumentasi (penjelasan teknis, screenshot, dan penyusunan laporan akhir).
