@@ -355,6 +355,7 @@ main {
   padding: 1.2rem;
   background: linear-gradient(120deg, rgba(236, 236, 116, 0.08), var(--white));
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
   animation: fadeUp 0.4s ease both;
 }
 
@@ -385,7 +386,9 @@ main {
 .scale-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.85rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: clamp(0.78rem, 1.8vw, 0.9rem);
   color: var(--muted);
   width: 100%;
 }
@@ -393,9 +396,10 @@ main {
 .choices {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: clamp(0.3rem, 1vw, 0.6rem);
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 .choice {
@@ -406,8 +410,8 @@ main {
 
 .choice input {
   appearance: none;
-  width: 40px;
-  height: 40px;
+  width: clamp(32px, 4.8vw, 44px);
+  height: clamp(32px, 4.8vw, 44px);
   border-radius: 50%;
   border: 2px solid rgba(32, 68, 116, 0.25);
   background: var(--white);
@@ -588,18 +592,16 @@ footer {
   }
 
   .scale-labels {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-
-  .choices {
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 0.35rem;
   }
 
+  .choices {
+    gap: clamp(0.2rem, 1vw, 0.4rem);
+  }
+
   .choice input {
-    width: 34px;
-    height: 34px;
+    width: clamp(30px, 7vw, 36px);
+    height: clamp(30px, 7vw, 36px);
   }
 }
