@@ -360,10 +360,15 @@ function generateQuestions() {
     const scaleWrapper = document.createElement("div");
     scaleWrapper.className = "scale";
 
+    const labelsRow = document.createElement("div");
+    labelsRow.className = "scale-labels";
+
     const disagreeLabel = document.createElement("span");
     disagreeLabel.textContent = "Sangat Tidak Setuju";
     const agreeLabel = document.createElement("span");
     agreeLabel.textContent = "Sangat Setuju";
+    labelsRow.appendChild(disagreeLabel);
+    labelsRow.appendChild(agreeLabel);
 
     const choices = document.createElement("div");
     choices.className = "choices";
@@ -382,9 +387,8 @@ function generateQuestions() {
       choices.appendChild(choice);
     }
 
-    scaleWrapper.appendChild(disagreeLabel);
+    scaleWrapper.appendChild(labelsRow);
     scaleWrapper.appendChild(choices);
-    scaleWrapper.appendChild(agreeLabel);
 
     card.appendChild(header);
     card.appendChild(scaleWrapper);
