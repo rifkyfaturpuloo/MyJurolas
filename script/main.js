@@ -1,54 +1,54 @@
 const questions = [
-  "Saya terbiasa memecah tantangan besar menjadi langkah logis yang terukur.",
-  "Saya senang memvisualisasikan karakter yang bisa hidup dalam cerita interaktif.",
-  "Saya terbiasa menilai harmoni warna sebelum memilih kombinasi desain.",
-  "Saya teliti mengukur ruang agar fungsi dan estetika tetap seimbang.",
-  "Saya tertarik merancang permainan atau aplikasi yang membantu orang lain.",
-  "Saya mudah mengeksplorasi sapuan kuas untuk menyampaikan perspektif pribadi.",
-  "Saya menikmati menata ulang motif tradisional agar relevan bagi generasi baru.",
-  "Saya suka merancang aksesori yang memadukan detail halus dan struktur kuat.",
-  "Saya merasakan kepuasan ketika benda kayu berubah menjadi karya fungsional.",
-  "Saya cepat menangkap perubahan tempo dan dinamika dalam sebuah komposisi musik.",
-  "Saya gemar bereksperimen dengan gerakan tubuh untuk mengekspresikan ide.",
-  "Saya penasaran menyusun komposisi suara yang terinspirasi tradisi Nusantara.",
-  "Saya percaya cerita dapat disampaikan kuat lewat dialog yang tepat.",
-  "Saya telaten menyelesaikan detail tekstil seperti jahitan, emboss, atau sambungan.",
-  "Saya menikmati memimpin produksi panggung dari konsep hingga pertunjukan.",
-  "Saya senang mengatur tata cahaya dan kamera untuk menekankan cerita.",
-  "Saya cepat menemukan pola logis ketika memperbaiki alur kerja digital.",
-  "Saya suka membuat storyboard visual sebelum memulai proyek kreatif.",
-  "Saya nyaman bekerja dengan alat ukir logam atau bahan keras lainnya.",
-  "Saya menikmati menggubah melodi yang menggambarkan suasana tertentu.",
-  "Saya terbiasa mengembangkan karakter yang memiliki latar budaya kuat.",
-  "Saya tertarik memadukan teknik batik dengan pewarna modern.",
-  "Saya percaya struktur ruang dapat mengubah mood penghuninya.",
-  "Saya bisa mengarahkan tim produksi agar disiplin terhadap timeline.",
-  "Saya senang mengajarkan gerakan baru kepada rekan latihan.",
-  "Saya reflektif menggali filosofi di balik cerita klasik Jawa.",
-  "Saya nyaman bekerja dengan kulit asli maupun sintetis untuk produk premium.",
-  "Saya terpacu membuat aplikasi edukasi yang interaktif dan menyenangkan.",
-  "Saya mengutamakan komposisi warna yang bercerita dalam poster atau layout.",
-  "Saya menikmati mengorkestrasi suara latar untuk pertunjukan panggung.",
-  "Saya suka menggabungkan tarian tradisional dan modern dalam satu koreografi.",
-  "Saya telaten memahat kayu hingga menghasilkan detail halus.",
-  "Saya mudah membayangkan dunia tiga dimensi sebelum dieksekusi.",
-  "Saya ingin mengabadikan cerita lokal lewat produksi film dokumenter.",
-  "Saya konsisten mencatat eksperimen agar bisa diulang lebih rapi.",
-  "Saya senang menyusun paket brand identity lengkap dari logo hingga panduan.",
-  "Saya dapat mendengar ketidakseimbangan nada sekecil apa pun.",
-  "Saya suka menambahkan ornamen khas Nusantara pada karya modern.",
-  "Saya mudah memimpin improvisasi di atas panggung.",
-  "Saya nyaman bekerja larut malam untuk menyelesaikan render atau editing.",
-  "Saya peduli ergonomi saat merancang furnitur atau interior.",
-  "Saya sering membuat prototipe fisik sebelum produksi massal.",
-  "Saya ingin menciptakan game yang mengangkat cerita budaya lokal.",
-  "Saya gemar memadukan ritme elektronik dengan instrumen tradisional.",
-  "Saya teliti menghitung biaya produksi agar proyek tetap efisien.",
-  "Saya menikmati menguji berbagai pola batik untuk koleksi terbatas.",
-  "Saya percaya latihan disiplin membuat koreografi lebih kuat.",
-  "Saya senang membangun antarmuka aplikasi yang estetik sekaligus fungsional.",
-  "Saya terbiasa menavigasi software 3D untuk mempresentasikan ide.",
-  "Saya ingin menjadi jembatan antara tim kreatif dan tim teknis."
+  "Saya merasa tertantang ketika menghadapi masalah tanpa solusi yang jelas.",
+  "Saya mudah memahami konsep sistematis dan berpola.",
+  "Saya senang merancang sesuatu yang bisa membantu pekerjaan orang lain menjadi lebih mudah.",
+  "Saya lebih menikmati berpikir dalam logika sebab-akibat dibandingkan dengan berimajinasi bebas.",
+  "Saya suka memanfaatkan teknologi untuk mewujudkan ide saya.",
+  "Saya bisa membayangkan bagaimana sesuatu akan terlihat bahkan sebelum dibuat.",
+  "Saya merasa tertarik melihat perpaduan warna, bentuk, dan tekstur yang unik.",
+  "Saya lebih tertarik menciptakan sesuatu yang indah daripada sesuatu yang hanya fungsional.",
+  "Saya mampu mengubah ide abstrak menjadi bentuk visual yang nyata.",
+  "Saya sering memperhatikan keindahan dalam hal-hal sederhana di sekitar saya.",
+  "Saya menikmati membuat benda nyata menggunakan tangan saya sendiri.",
+  "Saya tertarik pada proses kerja yang melibatkan alat atau bahan fisik.",
+  "Saya menghargai hasil karya yang memerlukan ketelitian tinggi dalam prosesnya.",
+  "Saya menyukai pekerjaan yang menggabungkan seni dan ketepatan teknis.",
+  "Saya merasa puas ketika hasil kerja saya memiliki fungsi nyata dan tahan lama.",
+  "Saya merasa nyaman mengekspresikan ide melalui gerakan, suara, atau ekspresi wajah.",
+  "Saya tertarik dengan kegiatan yang melibatkan penampilan di depan orang lain.",
+  "Saya bisa memahami perasaan orang lain melalui cara mereka berbicara atau bertindak.",
+  "Saya menikmati kegiatan yang menggabungkan unsur cerita, emosi, dan visual.",
+  "Saya percaya seni adalah cara terbaik untuk menyampaikan pesan atau gagasan.",
+  "Saya sering membayangkan karakter atau tokoh yang bisa saya jadikan inspirasi karya.",
+  "Saya senang menulis atau memikirkan jalan cerita yang menarik.",
+  "Saya menikmati kegiatan yang menggabungkan ide, visual, dan suara menjadi satu kesatuan.",
+  "Saya bisa menilai cerita dari sudut pandang pesan yang ingin disampaikan.",
+  "Saya tertarik dengan bagaimana alur cerita bisa memengaruhi emosi penonton.",
+  "Saya menghargai karya seni yang mengandung unsur budaya daerah.",
+  "Saya merasa penting melestarikan nilai-nilai tradisional dalam bentuk modern.",
+  "Saya senang mempelajari simbol dan filosofi yang ada dalam kebudayaan lokal.",
+  "Saya percaya seni tradisional tetap relevan di zaman sekarang.",
+  "Saya merasa bangga ketika budaya Indonesia diangkat dalam karya kreatif.",
+  "Saya memperhatikan keselarasan antara bentuk, ruang, dan fungsi suatu benda.",
+  "Saya menikmati kegiatan menata ruangan agar terlihat rapi dan nyaman.",
+  "Saya merasa setiap benda memiliki proporsi dan keseimbangan yang harus dijaga.",
+  "Saya suka menciptakan tata letak yang memudahkan aktivitas orang di dalamnya.",
+  "Saya percaya keindahan dan kenyamanan bisa dicapai melalui desain yang tepat.",
+  "Saya lebih produktif ketika bekerja dalam tim dibanding sendirian.",
+  "Saya suka mengatur pembagian tugas agar hasil kerja tim lebih maksimal.",
+  "Saya terbuka menerima kritik atau masukan demi hasil yang lebih baik.",
+  "Saya menikmati melihat proses ide kecil berkembang menjadi proyek besar.",
+  "Saya merasa puas saat hasil kerja kelompok saya diapresiasi banyak orang.",
+  "Saya tertarik menggabungkan seni dan teknologi dalam satu karya.",
+  "Saya senang mempelajari software atau alat digital baru untuk bereksperimen.",
+  "Saya percaya masa depan industri kreatif bergantung pada inovasi teknologi.",
+  "Saya tertarik membuat karya yang bisa diakses secara digital oleh banyak orang.",
+  "Saya merasa lebih efisien ketika bekerja menggunakan perangkat digital.",
+  "Saya merasa pekerjaan terbaik adalah yang sesuai dengan minat dan karakter saya.",
+  "Saya ingin menghasilkan karya yang memberi manfaat bagi orang lain.",
+  "Saya lebih menghargai proses pembelajaran dibanding hasil akhir.",
+  "Saya selalu mencari makna di balik setiap kegiatan yang saya lakukan.",
+  "Saya ingin dikenal sebagai seseorang yang menciptakan karya yang orisinal dan berdampak positif."
 ];
 
 const TOTAL_QUESTIONS = questions.length;
@@ -106,211 +106,59 @@ const jurusanDescriptions = {
     "Kamu gemar merangkai narasi menyeluruh, dari ide hingga produksi, dengan koordinasi lintas tim yang solid."
 };
 
-const questionMapping = [
-  [
-    { key: "pplg", weight: 2 },
-    { key: "interior", weight: 1 }
-  ],
-  [
-    { key: "animasi", weight: 2 },
-    { key: "film", weight: 1 }
-  ],
-  [
-    { key: "dkv", weight: 1 },
-    { key: "lukis", weight: 2 }
-  ],
-  [
-    { key: "interior", weight: 2 },
-    { key: "kayu", weight: 1 }
-  ],
-  [
-    { key: "pplg", weight: 1 },
-    { key: "animasi", weight: 2 }
-  ],
-  [
-    { key: "lukis", weight: 2 },
-    { key: "batik", weight: 1 }
-  ],
-  [
-    { key: "batik", weight: 2 },
-    { key: "pedalangan", weight: 1 }
-  ],
-  [
-    { key: "logam", weight: 2 },
-    { key: "kulit", weight: 1 }
-  ],
-  [
-    { key: "kayu", weight: 2 },
-    { key: "interior", weight: 1 }
-  ],
-  [
-    { key: "musik", weight: 1 },
-    { key: "karawitan", weight: 2 }
-  ],
-  [
-    { key: "tari", weight: 2 },
-    { key: "teater", weight: 1 }
-  ],
-  [
-    { key: "karawitan", weight: 2 },
-    { key: "pedalangan", weight: 1 }
-  ],
-  [
-    { key: "teater", weight: 2 },
-    { key: "film", weight: 1 }
-  ],
-  [
-    { key: "kulit", weight: 2 },
-    { key: "batik", weight: 1 }
-  ],
-  [
-    { key: "teater", weight: 2 },
-    { key: "film", weight: 1 }
-  ],
-  [
-    { key: "film", weight: 1 },
-    { key: "animasi", weight: 2 }
-  ],
-  [
-    { key: "pplg", weight: 2 },
-    { key: "animasi", weight: 1 }
-  ],
-  [
-    { key: "dkv", weight: 2 },
-    { key: "animasi", weight: 1 }
-  ],
-  [
-    { key: "logam", weight: 2 },
-    { key: "kulit", weight: 1 }
-  ],
-  [
-    { key: "musik", weight: 1 },
-    { key: "karawitan", weight: 1 },
-    { key: "tari", weight: 1 }
-  ],
-  [
-    { key: "film", weight: 1 },
-    { key: "pedalangan", weight: 2 }
-  ],
-  [
-    { key: "batik", weight: 2 },
-    { key: "dkv", weight: 1 }
-  ],
-  [
-    { key: "interior", weight: 2 },
-    { key: "kayu", weight: 1 }
-  ],
-  [
-    { key: "film", weight: 1 },
-    { key: "teater", weight: 2 }
-  ],
-  [
-    { key: "tari", weight: 2 },
-    { key: "teater", weight: 1 }
-  ],
-  [
-    { key: "pedalangan", weight: 2 },
-    { key: "karawitan", weight: 1 }
-  ],
-  [
-    { key: "logam", weight: 2 },
-    { key: "kulit", weight: 1 }
-  ],
-  [
-    { key: "pplg", weight: 1 },
-    { key: "animasi", weight: 1 },
-    { key: "dkv", weight: 1 }
-  ],
-  [
-    { key: "dkv", weight: 1 },
-    { key: "lukis", weight: 2 }
-  ],
-  [
-    { key: "musik", weight: 2 },
-    { key: "teater", weight: 1 }
-  ],
-  [
-    { key: "tari", weight: 1 },
-    { key: "karawitan", weight: 2 }
-  ],
-  [
-    { key: "logam", weight: 2 },
-    { key: "kayu", weight: 1 }
-  ],
-  [
-    { key: "animasi", weight: 1 },
-    { key: "interior", weight: 2 }
-  ],
-  [
-    { key: "film", weight: 1 },
-    { key: "pedalangan", weight: 2 }
-  ],
-  [
-    { key: "pplg", weight: 2 },
-    { key: "interior", weight: 1 }
-  ],
-  [
-    { key: "dkv", weight: 2 },
-    { key: "pplg", weight: 1 }
-  ],
-  [
-    { key: "musik", weight: 1 },
-    { key: "karawitan", weight: 2 }
-  ],
-  [
-    { key: "kayu", weight: 2 },
-    { key: "batik", weight: 1 }
-  ],
-  [
-    { key: "teater", weight: 2 },
-    { key: "tari", weight: 1 }
-  ],
-  [
-    { key: "animasi", weight: 2 },
-    { key: "film", weight: 1 }
-  ],
-  [
-    { key: "kayu", weight: 2 },
-    { key: "interior", weight: 1 }
-  ],
-  [
-    { key: "logam", weight: 2 },
-    { key: "kulit", weight: 1 }
-  ],
-  [
-    { key: "pplg", weight: 1 },
-    { key: "pedalangan", weight: 2 }
-  ],
-  [
-    { key: "musik", weight: 1 },
-    { key: "karawitan", weight: 2 }
-  ],
-  [
-    { key: "film", weight: 1 },
-    { key: "pplg", weight: 1 },
-    { key: "interior", weight: 1 }
-  ],
-  [
-    { key: "batik", weight: 2 },
-    { key: "kulit", weight: 1 }
-  ],
-  [
-    { key: "tari", weight: 2 },
-    { key: "musik", weight: 1 }
-  ],
-  [
-    { key: "dkv", weight: 2 },
-    { key: "pplg", weight: 1 }
-  ],
-  [
-    { key: "animasi", weight: 2 },
-    { key: "interior", weight: 1 }
-  ],
-  [
-    { key: "film", weight: 2 },
-    { key: "pplg", weight: 1 },
-    { key: "teater", weight: 1 }
-  ]
+const jurusanKeys = Object.keys(jurusanLabels);
+
+const pengaruh = [
+  {"pplg": 2, "lukis": -1, "dkv": 1, "interior": 1, "animasi": 1, "batik": -1, "kulit": -1, "logam": 1, "kayu": 1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": 2, "lukis": -1, "dkv": 1, "interior": 1, "animasi": 1, "batik": -1, "kulit": -1, "logam": 1, "kayu": 1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": 2, "lukis": -1, "dkv": 1, "interior": 1, "animasi": 1, "batik": -1, "kulit": -1, "logam": 1, "kayu": 1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": 2, "lukis": -1, "dkv": 1, "interior": 1, "animasi": 1, "batik": -1, "kulit": -1, "logam": 1, "kayu": 1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": 2, "lukis": -1, "dkv": 1, "interior": 1, "animasi": 1, "batik": -1, "kulit": -1, "logam": 1, "kayu": 1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": -2, "lukis": 2, "dkv": 2, "interior": 1, "animasi": 1, "batik": 1, "kulit": 0, "logam": -1, "kayu": -1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": -2, "lukis": 2, "dkv": 2, "interior": 1, "animasi": 1, "batik": 1, "kulit": 0, "logam": -1, "kayu": -1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": -2, "lukis": 2, "dkv": 2, "interior": 1, "animasi": 1, "batik": 1, "kulit": 0, "logam": -1, "kayu": -1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": -2, "lukis": 2, "dkv": 2, "interior": 1, "animasi": 1, "batik": 1, "kulit": 0, "logam": -1, "kayu": -1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": -2, "lukis": 2, "dkv": 2, "interior": 1, "animasi": 1, "batik": 1, "kulit": 0, "logam": -1, "kayu": -1, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": -2, "lukis": 1, "dkv": 1, "interior": 1, "animasi": -1, "batik": 2, "kulit": 2, "logam": 1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": -1},
+  {"pplg": -2, "lukis": 1, "dkv": 1, "interior": 1, "animasi": -1, "batik": 2, "kulit": 2, "logam": 1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": -1},
+  {"pplg": -2, "lukis": 1, "dkv": 1, "interior": 1, "animasi": -1, "batik": 2, "kulit": 2, "logam": 1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": -1},
+  {"pplg": -2, "lukis": 1, "dkv": 1, "interior": 1, "animasi": -1, "batik": 2, "kulit": 2, "logam": 1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": -1},
+  {"pplg": -2, "lukis": 1, "dkv": 1, "interior": 1, "animasi": -1, "batik": 2, "kulit": 2, "logam": 1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": -1},
+  {"pplg": -2, "lukis": 0, "dkv": -1, "interior": 0, "animasi": 1, "batik": 0, "kulit": -1, "logam": -1, "kayu": -1, "musik": 2, "tari": 2, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1},
+  {"pplg": -2, "lukis": 0, "dkv": -1, "interior": 0, "animasi": 1, "batik": 0, "kulit": -1, "logam": -1, "kayu": -1, "musik": 2, "tari": 2, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1},
+  {"pplg": -2, "lukis": 0, "dkv": -1, "interior": 0, "animasi": 1, "batik": 0, "kulit": -1, "logam": -1, "kayu": -1, "musik": 2, "tari": 2, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1},
+  {"pplg": -2, "lukis": 0, "dkv": -1, "interior": 0, "animasi": 1, "batik": 0, "kulit": -1, "logam": -1, "kayu": -1, "musik": 2, "tari": 2, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1},
+  {"pplg": -2, "lukis": 0, "dkv": -1, "interior": 0, "animasi": 1, "batik": 0, "kulit": -1, "logam": -1, "kayu": -1, "musik": 2, "tari": 2, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 0, "tari": 0, "karawitan": 0, "pedalangan": 2, "teater": 1, "film": 2},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 0, "tari": 0, "karawitan": 0, "pedalangan": 2, "teater": 1, "film": 2},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 0, "tari": 0, "karawitan": 0, "pedalangan": 2, "teater": 1, "film": 2},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 0, "tari": 0, "karawitan": 0, "pedalangan": 2, "teater": 1, "film": 2},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 0, "tari": 0, "karawitan": 0, "pedalangan": 2, "teater": 1, "film": 2},
+  {"pplg": -2, "lukis": 1, "dkv": -1, "interior": 0, "animasi": -1, "batik": 2, "kulit": 1, "logam": -1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": 2, "pedalangan": 2, "teater": 1, "film": -1},
+  {"pplg": -2, "lukis": 1, "dkv": -1, "interior": 0, "animasi": -1, "batik": 2, "kulit": 1, "logam": -1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": 2, "pedalangan": 2, "teater": 1, "film": -1},
+  {"pplg": -2, "lukis": 1, "dkv": -1, "interior": 0, "animasi": -1, "batik": 2, "kulit": 1, "logam": -1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": 2, "pedalangan": 2, "teater": 1, "film": -1},
+  {"pplg": -2, "lukis": 1, "dkv": -1, "interior": 0, "animasi": -1, "batik": 2, "kulit": 1, "logam": -1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": 2, "pedalangan": 2, "teater": 1, "film": -1},
+  {"pplg": -2, "lukis": 1, "dkv": -1, "interior": 0, "animasi": -1, "batik": 2, "kulit": 1, "logam": -1, "kayu": 1, "musik": 0, "tari": 0, "karawitan": 2, "pedalangan": 2, "teater": 1, "film": -1},
+  {"pplg": 1, "lukis": 0, "dkv": 1, "interior": 2, "animasi": 0, "batik": 1, "kulit": 0, "logam": 2, "kayu": 2, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": 1, "lukis": 0, "dkv": 1, "interior": 2, "animasi": 0, "batik": 1, "kulit": 0, "logam": 2, "kayu": 2, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": 1, "lukis": 0, "dkv": 1, "interior": 2, "animasi": 0, "batik": 1, "kulit": 0, "logam": 2, "kayu": 2, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": 1, "lukis": 0, "dkv": 1, "interior": 2, "animasi": 0, "batik": 1, "kulit": 0, "logam": 2, "kayu": 2, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": 1, "lukis": 0, "dkv": 1, "interior": 2, "animasi": 0, "batik": 1, "kulit": 0, "logam": 2, "kayu": 2, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 0, "film": 1},
+  {"pplg": 1, "lukis": -1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 1, "tari": 0, "karawitan": 1, "pedalangan": 0, "teater": 2, "film": 2},
+  {"pplg": 1, "lukis": -1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 1, "tari": 0, "karawitan": 1, "pedalangan": 0, "teater": 2, "film": 2},
+  {"pplg": 1, "lukis": -1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 1, "tari": 0, "karawitan": 1, "pedalangan": 0, "teater": 2, "film": 2},
+  {"pplg": 1, "lukis": -1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 1, "tari": 0, "karawitan": 1, "pedalangan": 0, "teater": 2, "film": 2},
+  {"pplg": 1, "lukis": -1, "dkv": 1, "interior": 0, "animasi": 1, "batik": -1, "kulit": -1, "logam": -1, "kayu": -1, "musik": 1, "tari": 0, "karawitan": 1, "pedalangan": 0, "teater": 2, "film": 2},
+  {"pplg": 2, "lukis": 0, "dkv": 1, "interior": 1, "animasi": 2, "batik": -1, "kulit": -1, "logam": 0, "kayu": 0, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": 2, "lukis": 0, "dkv": 1, "interior": 1, "animasi": 2, "batik": -1, "kulit": -1, "logam": 0, "kayu": 0, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": 2, "lukis": 0, "dkv": 1, "interior": 1, "animasi": 2, "batik": -1, "kulit": -1, "logam": 0, "kayu": 0, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": 2, "lukis": 0, "dkv": 1, "interior": 1, "animasi": 2, "batik": -1, "kulit": -1, "logam": 0, "kayu": 0, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": 2, "lukis": 0, "dkv": 1, "interior": 1, "animasi": 2, "batik": -1, "kulit": -1, "logam": 0, "kayu": 0, "musik": -1, "tari": -1, "karawitan": -1, "pedalangan": -1, "teater": 1, "film": 1},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 1, "animasi": 1, "batik": 1, "kulit": 1, "logam": 1, "kayu": 1, "musik": 1, "tari": 1, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 1, "animasi": 1, "batik": 1, "kulit": 1, "logam": 1, "kayu": 1, "musik": 1, "tari": 1, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 1, "animasi": 1, "batik": 1, "kulit": 1, "logam": 1, "kayu": 1, "musik": 1, "tari": 1, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 1, "animasi": 1, "batik": 1, "kulit": 1, "logam": 1, "kayu": 1, "musik": 1, "tari": 1, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1},
+  {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 1, "animasi": 1, "batik": 1, "kulit": 1, "logam": 1, "kayu": 1, "musik": 1, "tari": 1, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1}
 ];
 
 const jurusanScores = {
@@ -435,12 +283,11 @@ function updateProgress() {
 }
 
 function jawab(no, nilai) {
-  const mapping = questionMapping[no - 1];
-  if (!mapping) return;
+  const efek = pengaruh[no - 1];
+  if (!efek) return;
 
-  mapping.forEach(({ key, weight }) => {
-    const bobot = weight || 1;
-    jurusanScores[key] += nilai * bobot;
+  Object.keys(efek).forEach((key) => {
+    jurusanScores[key] += efek[key] * nilai;
   });
 }
 
@@ -523,7 +370,7 @@ function prosesJawaban() {
   selectedInputs.forEach((selected) => {
     const [, number] = selected.name.split("-");
     const questionNumber = parseInt(number, 10);
-    const nilai = 8 - parseInt(selected.value, 10);
+    const nilai = parseInt(selected.value, 10) - 4;
     jawab(questionNumber, nilai);
   });
 
