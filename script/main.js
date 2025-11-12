@@ -99,7 +99,7 @@ const CHUNK_SIZE = 10;
 const TOTAL_CHUNKS = Math.ceil(TOTAL_QUESTIONS / CHUNK_SIZE);
 
 const jurusanLabels = {
-  pplg: "Pengembangan Perangkat Lunak & Gim",
+  pplg: "Pengembangan Perangkat Lunak dan Gim",
   lukis: "Seni Lukis",
   dkv: "Desain Komunikasi Visual",
   interior: "Desain Interior dan Teknik Furnitur",
@@ -114,6 +114,24 @@ const jurusanLabels = {
   pedalangan: "Seni Pedalangan",
   teater: "Seni Teater",
   film: "Produksi Film"
+};
+
+const jurusanLogos = {
+  pplg: 'PPLG.jpg',
+  lukis: 'LUKIS.png',
+  dkv: 'DKV.png',
+  interior: 'DITF.jpg',
+  animasi: 'ANIMASI.png',
+  batik: 'BATIK.png',
+  kulit: 'KULIT.png',
+  logam: 'LOGAM.png',
+  kayu: 'KAYU.png',
+  musik: 'MUSIK.png',
+  tari: 'TARI.jpg',
+  karawitan: 'KARAWITAN.png',
+  pedalangan: 'PEDALANGAN.png',
+  teater: 'TEATER.png',
+  film: 'FILM.png'
 };
 
 const jurusanDescriptions = {
@@ -323,12 +341,12 @@ function scrollToFirstUnanswered(chunk) {
 function validateCurrentChunk() {
   const idx = firstUnansweredIndexInChunk(currentChunk);
   if (idx !== -1) {
-    alertBox.textContent = "Masih ada pertanyaan yang belum dijawab di bagian ini.";
+    alertBox.textContent = `Bagian ${currentChunk + 1} masih memiliki pertanyaan yang belum dijawab.`;
     alertBox.classList.remove("hidden");
     scrollToFirstUnanswered(currentChunk);
     // mark unanswered in this chunk and toast
     markUnansweredInChunk(currentChunk);
-    showToast('Lengkapi semua pertanyaan pada bagian ini dulu.');
+    showToast(`Lengkapi semua pertanyaan pada bagian ${currentChunk + 1} terlebih dahulu.`);
     return false;
   }
   alertBox.classList.add("hidden");
@@ -509,6 +527,7 @@ function jawab(no, nilai) {
   if (!efek) return;
 
   Object.keys(efek).forEach((key) => {
+    if (!Object.prototype.hasOwnProperty.call(jurusanScores, key)) return;
     jurusanScores[key] += efek[key] * nilai;
   });
 }
@@ -530,43 +549,27 @@ function tampilkanHasil() {
     return;
   }
 
-  // Build ranking and compute percentage relative to theoretical maximum per jurusan
-  const entries = Object.entries(jurusanScores);
+  hasilSection.classList.remove('hidden');
+
+  // Susun ranking berdasarkan skor agregat yang valid
+  const entries = Object.entries(jurusanScores).filter(([key]) => jurusanLabels[key]);
   const ranking = entries.sort((a, b) => b[1] - a[1]);
 
-  // Symmetric min-max scaling per jurusan.
-  // Compute theoretical positive and negative potentials:
-  // pos = sum(3 * w+) and neg = sum(3 * |w-|). Raw score v is mapped to [0,100] via:
-  // pct = (v + neg) / (pos + neg) * 100
-  // This yields ~50% when answers net to neutral, caps at 0 and 100.
-  const potentials = {};
-  Object.keys(jurusanScores).forEach((key) => (potentials[key] = { pos: 0, neg: 0 }));
-  pengaruh.forEach((efek) => {
-    Object.keys(jurusanScores).forEach((key) => {
-      const w = efek[key] ?? 0;
-      if (w > 0) potentials[key].pos += 3 * w; // max contribution with +3
-      else if (w < 0) potentials[key].neg += 3 * (-w); // max contribution with -3
-    });
-  });
-
-  const percMap = Object.fromEntries(
-    ranking.map(([k, v]) => {
-      const { pos, neg } = potentials[k] || { pos: 0, neg: 0 };
-      const denom = pos + neg;
-      const pct = denom > 0 ? Math.min(100, Math.max(0, ((v + neg) / denom) * 100)) : 0;
-      return [k, pct];
-    })
-  );
   const topThree = ranking.slice(0, 3);
 
   const medalClass = (i) => (i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze');
   const podium = `
     <div class="podium">
-      ${topThree.map(([key, value], i) => `
+      ${topThree.map(([key], i) => `
         <div class="podium-card ${medalClass(i)}">
-          <div class="medal">${i+1}</div>
-          <strong>${jurusanLabels[key]}</strong>
-          <small>${percMap[key].toFixed(1)}%</small>
+          <div class="medal">${i + 1}</div>
+          <div class="podium-major">
+            <img src="Logo Jurusan SMKN 12 Surabaya/${jurusanLogos[key] || 'PPLG.jpg'}" alt="${jurusanLabels[key]}" class="podium-logo">
+            <div class="podium-copy">
+              <strong>${jurusanLabels[key]}</strong>
+              <small>Peringkat ke-${i + 1}</small>
+            </div>
+          </div>
         </div>
       `).join('')}
     </div>
@@ -574,28 +577,46 @@ function tampilkanHasil() {
 
   const rankingList = ranking
     .map(
-      ([key, value], idx) => `
+      ([key], idx) => `
         <li>
-          <span>${idx + 1}</span>
-          <strong>${jurusanLabels[key]}</strong>
-          <em>${percMap[key].toFixed(1)}%</em>
+          <span class="rank-pill">${idx + 1}</span>
+          <div class="major-profile">
+            <img src="Logo Jurusan SMKN 12 Surabaya/${jurusanLogos[key] || 'PPLG.jpg'}" alt="${jurusanLabels[key]}" class="major-logo">
+            <div class="major-copy">
+              <span class="major-name">${jurusanLabels[key]}</span>
+              <small>Peringkat ke-${idx + 1}</small>
+            </div>
+          </div>
         </li>
       `
     )
     .join("");
 
   hasilContent.innerHTML = `
-    <h2>Rekomendasi Jurusan</h2>
-    <p>Kamu paling selaras dengan <strong>${jurusanLabels[jurusanTerpilih]}</strong>.</p>
-    ${podium}
-    <div class="tips">
-      <p>${jurusanDescriptions[jurusanTerpilih]}</p>
+    <div class="hasil-header">
+      <h2>Rekomendasi Jurusan</h2>
+      <p>Berdasarkan jawabanmu, berikut adalah rekomendasi jurusan yang paling sesuai dengan minat dan kepribadianmu:</p>
     </div>
+    
+    <div class="podium-section">
+      <h3>3 Jurusan Teratas untuk Kamu</h3>
+      ${podium}
+    </div>
+    
     <div class="ranking-wrap">
-      <h3>Semua Peringkat</h3>
+      <h3>Daftar Lengkap Rekomendasi</h3>
+      <p class="text-muted text-center" style="margin-top: -0.75rem; margin-bottom: 1rem;">
+        Urutan berdasarkan kecocokan dengan jawabanmu
+      </p>
       <ul class="ranking-list">
         ${rankingList}
       </ul>
+    </div>
+    
+    <div class="text-center" style="margin-top: 2rem;">
+      <p style="margin-bottom: 0;">
+        <small class="text-muted">Hasil ini berdasarkan analisis jawaban yang kamu berikan.</small>
+      </p>
     </div>
   `;
 
@@ -609,11 +630,11 @@ function prosesJawaban() {
   if (firstUn !== -1) {
     const targetChunk = Math.floor(firstUn / CHUNK_SIZE);
     showChunk(targetChunk);
-    alertBox.textContent = "Jawab semua pertanyaan sebelum melihat rekomendasi.";
+    alertBox.textContent = `Masih ada soal yang kosong pada bagian ${targetChunk + 1}. Kerjakan dulu sebelum melihat rekomendasi.`;
     alertBox.classList.remove("hidden");
     scrollToFirstUnanswered(targetChunk);
     markUnansweredInChunk(targetChunk);
-    showToast('Masih ada pertanyaan yang kosong.');
+    showToast(`Bagian ${targetChunk + 1} belum lengkap. Isi semua pertanyaan.`);
     return;
   }
 
@@ -639,6 +660,7 @@ function resetQuiz() {
   // Reset state
   userAnswers.fill(0);
   resetScores();
+  hasilSection.classList.add('hidden');
   collapseChunks();
   progressBar.style.width = "0%";
   progressText.textContent = `0/${TOTAL_QUESTIONS} terjawab`;
