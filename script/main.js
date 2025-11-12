@@ -456,6 +456,33 @@ function updateProgress() {
   }
 }
 
+function longestRunSame(arr) {
+  let best = 1, cur = 1;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === arr[i-1]) { cur++; best = Math.max(best, cur); }
+    else { cur = 1; }
+  }
+  return best;
+}
+
+function isSuspiciousAnswers(ans) {
+  const values = ans.slice();
+  const allAnswered = values.every(Boolean);
+  if (!allAnswered) return { suspicious: false, reason: '' };
+  const set = new Set(values);
+  const unique = set.size;
+  const extremes = values.filter(v => v === 1 || v === 7).length / values.length;
+  const lrun = longestRunSame(values);
+  const mean = values.reduce((a,b)=>a+b,0) / values.length;
+  const variance = values.reduce((a,b)=>a + Math.pow(b - mean, 2), 0) / values.length;
+  const stdev = Math.sqrt(variance);
+  if (unique === 1) return { suspicious: true, reason: 'Semua jawaban sama.' };
+  if (lrun >= 20 && unique <= 2) return { suspicious: true, reason: 'Pola jawaban berulang panjang.' };
+  if (extremes >= 0.9) return { suspicious: true, reason: 'Hampir semua jawaban pada nilai ekstrem (1/7).' };
+  if (stdev < 0.5 && unique <= 2) return { suspicious: true, reason: 'Variasi jawaban sangat rendah.' };
+  return { suspicious: false, reason: '' };
+}
+
 function jawab(no, nilai) {
   const efek = pengaruh[no - 1];
   if (!efek) return;
@@ -569,6 +596,14 @@ function prosesJawaban() {
     return;
   }
 
+  const check = isSuspiciousAnswers(userAnswers);
+  if (check.suspicious) {
+    alertBox.textContent = `Peringatan: ${check.reason} Mohon isi secara jujur agar hasil akurat.`;
+    alertBox.classList.remove('hidden');
+    showToast('Pola jawaban terdeteksi tidak wajar. Periksa kembali sebelum lanjut.');
+    return;
+  }
+
   resetScores();
 
   userAnswers.forEach((nilai, index) => {
@@ -609,15 +644,35 @@ function resetQuiz() {
 }
 
 generateQuestions();
-// Intercept to show confirmation when all answered
 hasilBtn.addEventListener("click", () => {
   const allAnswered = userAnswers.every(Boolean);
   if (!allAnswered) {
     prosesJawaban();
     return;
   }
-  showConfirm('Apakah kamu yakin ingin melihat rekomendasi sekarang?', () => {
-    prosesJawaban();
+  const check = isSuspiciousAnswers(userAnswers);
+  const msg = check.suspicious
+    ? `Kami mendeteksi pola jawaban yang tidak wajar (${check.reason}) yang dapat membuat hasil tidak akurat. Tetap lanjut melihat rekomendasi?`
+    : 'Apakah kamu yakin ingin melihat rekomendasi sekarang?';
+  showConfirm(msg, () => {
+    if (check.suspicious) {
+      alertBox.classList.add('hidden');
+    }
+    // bypass early-return warning in prosesJawaban setelah konfirmasi pengguna
+    const tmp = prosesJawaban;
+    // sementara nonaktifkan blokir dengan menyalin jawaban dan memanggil pipeline manual
+    // jalankan perhitungan langsung jika terdeteksi pola namun sudah dikonfirmasi
+    if (check.suspicious) {
+      alertBox.classList.add('hidden');
+      resetScores();
+      userAnswers.forEach((nilai, index) => {
+        const delta = nilai - 4;
+        jawab(index + 1, delta);
+      });
+      tampilkanHasil();
+    } else {
+      prosesJawaban();
+    }
   });
 });
 resetBtn.addEventListener("click", () => {
