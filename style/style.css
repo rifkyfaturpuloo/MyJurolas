@@ -366,6 +366,27 @@ main {
   margin-bottom: 0.5rem;
 }
 
+/* Red warning box before quiz */
+.warning-box { 
+  margin: 1rem 0 1.5rem; 
+}
+.warning-inner {
+  background: #fdecea;
+  border: 1px solid #f5c6cb;
+  color: #7a1f21;
+  border-radius: 18px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 20px 40px rgba(231, 76, 60, 0.08);
+}
+.warning-inner h3 { 
+  margin: 0 0 0.35rem 0; 
+  font-size: 1.05rem; 
+}
+.warning-inner p { 
+  margin: 0; 
+  font-size: 0.95rem; 
+}
+
 .quiz .panel,
 .hasil-section .panel {
   background: var(--white);
