@@ -199,6 +199,50 @@ hasilBtn.disabled = true;
 const userAnswers = new Array(TOTAL_QUESTIONS).fill(0);
 let currentChunk = 0;
 
+// UI helpers: toast + modal
+function ensureToastContainer() {
+  let el = document.querySelector('.toast-container');
+  if (!el) {
+    el = document.createElement('div');
+    el.className = 'toast-container';
+    document.body.appendChild(el);
+  }
+  return el;
+}
+
+function showToast(message, timeout = 2500) {
+  const container = ensureToastContainer();
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 180ms ease';
+    setTimeout(() => toast.remove(), 200);
+  }, timeout);
+}
+
+function showConfirm(message, onConfirm) {
+  const backdrop = document.createElement('div');
+  backdrop.className = 'modal-backdrop';
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.innerHTML = `
+    <header>Konfirmasi</header>
+    <p>${message}</p>
+    <div class="actions">
+      <button class="cancel">Batal</button>
+      <button class="confirm">Lanjut</button>
+    </div>
+  `;
+  backdrop.appendChild(modal);
+  document.body.appendChild(backdrop);
+  function close() { backdrop.remove(); }
+  modal.querySelector('.cancel').addEventListener('click', close);
+  modal.querySelector('.confirm').addEventListener('click', () => { close(); onConfirm && onConfirm(); });
+}
+
 function getChunkRange(chunk) {
   const start = chunk * CHUNK_SIZE;
   const end = Math.min(start + CHUNK_SIZE, TOTAL_QUESTIONS);
@@ -238,10 +282,23 @@ function validateCurrentChunk() {
     alertBox.textContent = "Masih ada pertanyaan yang belum dijawab di bagian ini.";
     alertBox.classList.remove("hidden");
     scrollToFirstUnanswered(currentChunk);
+    // mark unanswered in this chunk and toast
+    markUnansweredInChunk(currentChunk);
+    showToast('Lengkapi semua pertanyaan pada bagian ini dulu.');
     return false;
   }
   alertBox.classList.add("hidden");
   return true;
+}
+
+function markUnansweredInChunk(chunk) {
+  const { start, end } = getChunkRange(chunk);
+  document.querySelectorAll('.question-card').forEach((card, i) => {
+    if (i >= start && i < end) {
+      if (!userAnswers[i]) card.classList.add('unanswered');
+      else card.classList.remove('unanswered');
+    }
+  });
 }
 
 function updateNavUI() {
@@ -302,6 +359,8 @@ function generateQuestions() {
         // activate this
         pill.classList.add("active", i <= 3 ? "low" : i === 4 ? "neutral" : "high");
         alertBox.classList.add("hidden");
+        // remove unanswered mark on this card
+        card.classList.remove('unanswered');
         updateProgress();
         updateNavUI();
       });
@@ -399,30 +458,49 @@ function tampilkanHasil() {
     return;
   }
 
-  const ranking = Object.entries(jurusanScores).sort((a, b) => b[1] - a[1]);
+  // Build ranking and compute percentage relative to theoretical maximum per jurusan
+  const entries = Object.entries(jurusanScores);
+  const ranking = entries.sort((a, b) => b[1] - a[1]);
+
+  // Compute max potential score for each jurusan: sum over questions of 3 * abs(weight)
+  const maxPotential = {};
+  Object.keys(jurusanScores).forEach((key) => (maxPotential[key] = 0));
+  pengaruh.forEach((efek) => {
+    Object.keys(jurusanScores).forEach((key) => {
+      const w = efek[key] ?? 0;
+      maxPotential[key] += 3 * Math.abs(w);
+    });
+  });
+
+  const percMap = Object.fromEntries(
+    ranking.map(([k, v]) => {
+      const maxK = maxPotential[k] || 1;
+      const pct = Math.max(0, (v / maxK) * 100);
+      return [k, pct];
+    })
+  );
   const topThree = ranking.slice(0, 3);
 
-  const highlightCards = topThree
-    .map(
-      ([key, value], idx) => `
-        <div class="result-card">
-          <div>
-            <small>Peringkat ${idx + 1}</small>
-            <strong>${jurusanLabels[key]}</strong>
-          </div>
-          <span>${value} poin</span>
+  const medalClass = (i) => (i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze');
+  const podium = `
+    <div class="podium">
+      ${topThree.map(([key, value], i) => `
+        <div class="podium-card ${medalClass(i)}">
+          <div class="medal">${i+1}</div>
+          <strong>${jurusanLabels[key]}</strong>
+          <small>${percMap[key].toFixed(1)}%</small>
         </div>
-      `
-    )
-    .join("");
+      `).join('')}
+    </div>
+  `;
 
   const rankingList = ranking
     .map(
       ([key, value], idx) => `
         <li>
-          <span>${idx + 1}.</span>
+          <span>${idx + 1}</span>
           <strong>${jurusanLabels[key]}</strong>
-          <em>${value} poin</em>
+          <em>${percMap[key].toFixed(1)}%</em>
         </li>
       `
     )
@@ -431,18 +509,20 @@ function tampilkanHasil() {
   hasilContent.innerHTML = `
     <h2>Rekomendasi Jurusan</h2>
     <p>Kamu paling selaras dengan <strong>${jurusanLabels[jurusanTerpilih]}</strong>.</p>
-    <div class="result-highlight">
-      ${highlightCards}
-    </div>
+    ${podium}
     <div class="tips">
       <p>${jurusanDescriptions[jurusanTerpilih]}</p>
     </div>
-    <ul class="ranking-list">
-      ${rankingList}
-    </ul>
+    <div class="ranking-wrap">
+      <h3>Semua Peringkat</h3>
+      <ul class="ranking-list">
+        ${rankingList}
+      </ul>
+    </div>
   `;
 
   resetBtn.classList.remove("hidden");
+  resetBtn.classList.add('danger-btn');
   hasilSection.scrollIntoView({ behavior: "smooth" });
 }
 
@@ -454,6 +534,8 @@ function prosesJawaban() {
     alertBox.textContent = "Jawab semua pertanyaan sebelum melihat rekomendasi.";
     alertBox.classList.remove("hidden");
     scrollToFirstUnanswered(targetChunk);
+    markUnansweredInChunk(targetChunk);
+    showToast('Masih ada pertanyaan yang kosong.');
     return;
   }
 
@@ -497,8 +579,22 @@ function resetQuiz() {
 }
 
 generateQuestions();
-hasilBtn.addEventListener("click", prosesJawaban);
-resetBtn.addEventListener("click", resetQuiz);
+// Intercept to show confirmation when all answered
+hasilBtn.addEventListener("click", () => {
+  const allAnswered = userAnswers.every(Boolean);
+  if (!allAnswered) {
+    prosesJawaban();
+    return;
+  }
+  showConfirm('Apakah kamu yakin ingin melihat rekomendasi sekarang?', () => {
+    prosesJawaban();
+  });
+});
+resetBtn.addEventListener("click", () => {
+  showConfirm('Apakah kamu yakin ingin mengulang tes?', () => {
+    resetQuiz();
+  });
+});
 
 if (prevBtn) {
   prevBtn.addEventListener('click', () => {
