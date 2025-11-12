@@ -1,3 +1,24 @@
+// Prevent auto-scroll on refresh or when URL carries #tes/#hasil
+try {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (location.hash) {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    if (location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  });
+} catch (e) { /* no-op */ }
+
 // 50 pertanyaan (urut sesuai UI)
 const questions = [
   "Saya merasa tertantang ketika menyelesaikan masalah yang belum ada solusinya.",
@@ -249,7 +270,7 @@ function getChunkRange(chunk) {
   return { start, end };
 }
 
-function showChunk(chunk) {
+function showChunk(chunk, doScroll = true) {
   currentChunk = Math.max(0, Math.min(chunk, TOTAL_CHUNKS - 1));
   document.querySelectorAll(".question-card").forEach((card) => {
     const c = parseInt(card.dataset.chunk, 10);
@@ -258,9 +279,11 @@ function showChunk(chunk) {
   });
   updateNavUI();
   // scroll to first question in this chunk
-  const { start } = getChunkRange(currentChunk);
-  const first = document.querySelector(`.question-card[data-chunk="${currentChunk}"]`);
-  if (first) first.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (doScroll) {
+    const { start } = getChunkRange(currentChunk);
+    const first = document.querySelector(`.question-card[data-chunk="${currentChunk}"]`);
+    if (first) first.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 function firstUnansweredIndexInChunk(chunk) {
@@ -375,7 +398,8 @@ function generateQuestions() {
     questionsContainer.appendChild(card);
   });
 
-  showChunk(0);
+  // Do not auto-scroll on initial render
+  showChunk(0, false);
 }
 
 function handleAnswer(event) {
