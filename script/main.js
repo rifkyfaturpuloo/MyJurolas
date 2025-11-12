@@ -11,12 +11,33 @@ try {
       history.replaceState(null, '', location.pathname + location.search);
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    // theme toggle label sync after DOM is ready
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      themeToggle.textContent = current === 'dark' ? 'Mode Terang' : 'Mode Gelap';
+      themeToggle.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        themeToggle.textContent = next === 'dark' ? 'Mode Terang' : 'Mode Gelap';
+      });
+    }
   });
   window.addEventListener('pageshow', (e) => {
     if (e.persisted) {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
   });
+} catch (e) { /* no-op */ }
+
+// Initialize theme ASAP to avoid FOUC
+try {
+  const stored = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initial = stored || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', initial);
 } catch (e) { /* no-op */ }
 
 // 50 pertanyaan (urut sesuai UI)

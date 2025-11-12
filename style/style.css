@@ -1203,3 +1203,87 @@ main {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --soft: #0b1220;
+  --ink: #e6eaf3;
+  --muted: #9aa7bd;
+  --surface: #0f1a2e;
+  --surface-2: #15233d;
+}
+
+[data-theme="dark"] body {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+[data-theme="dark"] .intro-card,
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .majors-card,
+[data-theme="dark"] .quiz .panel,
+[data-theme="dark"] .hasil-section .panel,
+[data-theme="dark"] .question-card,
+[data-theme="dark"] .modal {
+  background: var(--surface);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .intro-card h3,
+[data-theme="dark"] .question-card h4,
+[data-theme="dark"] .modal header,
+[data-theme="dark"] .modal p {
+  color: var(--ink);
+}
+
+[data-theme="dark"] .progress { background: rgba(255, 255, 255, 0.12); }
+[data-theme="dark"] .eyebrow { color: var(--muted); }
+
+[data-theme="dark"] .number-indicators .pill {
+  background: var(--surface-2);
+  color: var(--ink);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .ranking-list li {
+  background: var(--surface);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .toast { background: #0b1a34; border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .modal-backdrop { background: rgba(0, 0, 0, 0.55); }
+
+/* Dark tweaks for hero cards */
+[data-theme="dark"] .hero-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Dark tweaks for question card gradient */
+[data-theme="dark"] .question-card {
+  background: linear-gradient(120deg, rgba(236, 236, 116, 0.05), var(--surface));
+}
+
+/* Dark: Podium cards */
+[data-theme="dark"] .podium-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), var(--surface));
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+[data-theme="dark"] .podium-card small { color: var(--muted); }
+
+/* Dark: Likert labels */
+[data-theme="dark"] .scale-labels span { color: var(--muted); }
+
+/* Dark: Majors list */
+[data-theme="dark"] .majors-card li { color: var(--ink); }
+[data-theme="dark"] .majors-card li::before { color: #6ea8ff; }
+
+/* Dark: Header ghost button border for contrast */
+[data-theme="dark"] .ghost-btn { border-color: rgba(255,255,255,0.7); color: #fff; }
+
+/* Re-enable alert visibility (override older rule) */
+.alert { display: block !important; }
+.alert.hidden { display: none !important; }
