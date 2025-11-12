@@ -462,20 +462,26 @@ function tampilkanHasil() {
   const entries = Object.entries(jurusanScores);
   const ranking = entries.sort((a, b) => b[1] - a[1]);
 
-  // Compute max potential score for each jurusan: sum over questions of 3 * abs(weight)
-  const maxPotential = {};
-  Object.keys(jurusanScores).forEach((key) => (maxPotential[key] = 0));
+  // Symmetric min-max scaling per jurusan.
+  // Compute theoretical positive and negative potentials:
+  // pos = sum(3 * w+) and neg = sum(3 * |w-|). Raw score v is mapped to [0,100] via:
+  // pct = (v + neg) / (pos + neg) * 100
+  // This yields ~50% when answers net to neutral, caps at 0 and 100.
+  const potentials = {};
+  Object.keys(jurusanScores).forEach((key) => (potentials[key] = { pos: 0, neg: 0 }));
   pengaruh.forEach((efek) => {
     Object.keys(jurusanScores).forEach((key) => {
       const w = efek[key] ?? 0;
-      maxPotential[key] += 3 * Math.abs(w);
+      if (w > 0) potentials[key].pos += 3 * w; // max contribution with +3
+      else if (w < 0) potentials[key].neg += 3 * (-w); // max contribution with -3
     });
   });
 
   const percMap = Object.fromEntries(
     ranking.map(([k, v]) => {
-      const maxK = maxPotential[k] || 1;
-      const pct = Math.max(0, (v / maxK) * 100);
+      const { pos, neg } = potentials[k] || { pos: 0, neg: 0 };
+      const denom = pos + neg;
+      const pct = denom > 0 ? Math.min(100, Math.max(0, ((v + neg) / denom) * 100)) : 0;
       return [k, pct];
     })
   );
