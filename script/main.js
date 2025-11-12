@@ -1,54 +1,55 @@
+// 50 pertanyaan (urut sesuai UI)
 const questions = [
-  "Saya merasa tertantang ketika menghadapi masalah tanpa solusi yang jelas.",
-  "Saya mudah memahami konsep sistematis dan berpola.",
-  "Saya senang merancang sesuatu yang bisa membantu pekerjaan orang lain menjadi lebih mudah.",
-  "Saya lebih menikmati berpikir dalam logika sebab-akibat dibandingkan dengan berimajinasi bebas.",
-  "Saya suka memanfaatkan teknologi untuk mewujudkan ide saya.",
-  "Saya bisa membayangkan bagaimana sesuatu akan terlihat bahkan sebelum dibuat.",
-  "Saya merasa tertarik melihat perpaduan warna, bentuk, dan tekstur yang unik.",
-  "Saya lebih tertarik menciptakan sesuatu yang indah daripada sesuatu yang hanya fungsional.",
-  "Saya mampu mengubah ide abstrak menjadi bentuk visual yang nyata.",
-  "Saya sering memperhatikan keindahan dalam hal-hal sederhana di sekitar saya.",
-  "Saya menikmati membuat benda nyata menggunakan tangan saya sendiri.",
-  "Saya tertarik pada proses kerja yang melibatkan alat atau bahan fisik.",
-  "Saya menghargai hasil karya yang memerlukan ketelitian tinggi dalam prosesnya.",
-  "Saya menyukai pekerjaan yang menggabungkan seni dan ketepatan teknis.",
-  "Saya merasa puas ketika hasil kerja saya memiliki fungsi nyata dan tahan lama.",
-  "Saya merasa nyaman mengekspresikan ide melalui gerakan, suara, atau ekspresi wajah.",
-  "Saya tertarik dengan kegiatan yang melibatkan penampilan di depan orang lain.",
-  "Saya bisa memahami perasaan orang lain melalui cara mereka berbicara atau bertindak.",
-  "Saya menikmati kegiatan yang menggabungkan unsur cerita, emosi, dan visual.",
-  "Saya percaya seni adalah cara terbaik untuk menyampaikan pesan atau gagasan.",
-  "Saya sering membayangkan karakter atau tokoh yang bisa saya jadikan inspirasi karya.",
-  "Saya senang menulis atau memikirkan jalan cerita yang menarik.",
-  "Saya menikmati kegiatan yang menggabungkan ide, visual, dan suara menjadi satu kesatuan.",
-  "Saya bisa menilai cerita dari sudut pandang pesan yang ingin disampaikan.",
-  "Saya tertarik dengan bagaimana alur cerita bisa memengaruhi emosi penonton.",
-  "Saya menghargai karya seni yang mengandung unsur budaya daerah.",
-  "Saya merasa penting melestarikan nilai-nilai tradisional dalam bentuk modern.",
-  "Saya senang mempelajari simbol dan filosofi yang ada dalam kebudayaan lokal.",
-  "Saya percaya seni tradisional tetap relevan di zaman sekarang.",
-  "Saya merasa bangga ketika budaya Indonesia diangkat dalam karya kreatif.",
-  "Saya memperhatikan keselarasan antara bentuk, ruang, dan fungsi suatu benda.",
-  "Saya menikmati kegiatan menata ruangan agar terlihat rapi dan nyaman.",
-  "Saya merasa setiap benda memiliki proporsi dan keseimbangan yang harus dijaga.",
-  "Saya suka menciptakan tata letak yang memudahkan aktivitas orang di dalamnya.",
-  "Saya percaya keindahan dan kenyamanan bisa dicapai melalui desain yang tepat.",
-  "Saya lebih produktif ketika bekerja dalam tim dibanding sendirian.",
-  "Saya suka mengatur pembagian tugas agar hasil kerja tim lebih maksimal.",
-  "Saya terbuka menerima kritik atau masukan demi hasil yang lebih baik.",
-  "Saya menikmati melihat proses ide kecil berkembang menjadi proyek besar.",
-  "Saya merasa puas saat hasil kerja kelompok saya diapresiasi banyak orang.",
-  "Saya tertarik menggabungkan seni dan teknologi dalam satu karya.",
-  "Saya senang mempelajari software atau alat digital baru untuk bereksperimen.",
-  "Saya percaya masa depan industri kreatif bergantung pada inovasi teknologi.",
-  "Saya tertarik membuat karya yang bisa diakses secara digital oleh banyak orang.",
-  "Saya merasa lebih efisien ketika bekerja menggunakan perangkat digital.",
-  "Saya merasa pekerjaan terbaik adalah yang sesuai dengan minat dan karakter saya.",
-  "Saya ingin menghasilkan karya yang memberi manfaat bagi orang lain.",
-  "Saya lebih menghargai proses pembelajaran dibanding hasil akhir.",
-  "Saya selalu mencari makna di balik setiap kegiatan yang saya lakukan.",
-  "Saya ingin dikenal sebagai seseorang yang menciptakan karya yang orisinal dan berdampak positif."
+  "Saya merasa tertantang ketika menyelesaikan masalah yang belum ada solusinya.",
+  "Saya mudah melihat pola atau hubungan tersembunyi dalam suatu sistem.",
+  "Saya suka merancang sesuatu yang membuat pekerjaan orang lain menjadi lebih efisien.",
+  "Saya lebih nyaman berpikir langkah demi langkah daripada improvisasi spontan.",
+  "Saya senang memanfaatkan teknologi untuk mewujudkan ide-ide saya.",
+  "Saya bisa membayangkan bentuk atau tampilan sebelum sesuatu dibuat.",
+  "Saya tertarik memadukan warna, bentuk, dan tekstur menjadi satu kesan visual.",
+  "Saya lebih menyukai karya yang indah namun tetap berfungsi dengan baik.",
+  "Saya mampu menerjemahkan ide yang abstrak menjadi bentuk visual yang jelas.",
+  "Saya sering memperhatikan detail estetika dalam hal-hal sederhana di sekitar saya.",
+  "Saya menikmati membuat benda nyata dengan tangan saya sendiri.",
+  "Saya penasaran dengan proses kerja yang melibatkan alat atau bahan fisik.",
+  "Saya telaten mengerjakan pekerjaan yang menuntut ketelitian tinggi.",
+  "Saya menyukai aktivitas yang menggabungkan seni dan ketepatan teknis.",
+  "Saya merasa puas saat karya saya kokoh, tahan lama, dan bermanfaat.",
+  "Saya nyaman mengekspresikan ide lewat gerak tubuh, suara, atau ekspresi wajah.",
+  "Saya antusias mengikuti kegiatan yang melibatkan penampilan di depan orang lain.",
+  "Saya peka pada emosi orang lain dari cara berbicara atau bertindak mereka.",
+  "Saya menikmati kegiatan yang memadukan cerita, emosi, dan visual menjadi satu.",
+  "Saya percaya pertunjukan seni adalah media efektif untuk menyampaikan pesan.",
+  "Saya suka menyusun alur cerita yang menarik dari sebuah ide kecil.",
+  "Saya sering membayangkan karakter atau tokoh dengan watak yang jelas.",
+  "Saya menikmati proses menyatukan gambar, suara, dan cerita dalam satu karya.",
+  "Saya menilai cerita dari pesan yang ingin disampaikan, bukan hanya tampilannya.",
+  "Saya tertarik bagaimana susunan adegan dapat memengaruhi emosi penonton.",
+  "Saya menghargai karya yang memuat unsur budaya lokal.",
+  "Saya merasa penting melestarikan nilai tradisi dalam bentuk yang relevan.",
+  "Saya senang mempelajari simbol, motif, dan filosofi dari kebudayaan.",
+  "Saya percaya seni tradisi tetap bermakna di masa kini.",
+  "Saya bangga ketika karya saya terinspirasi budaya Indonesia.",
+  "Saya memperhatikan keseimbangan antara bentuk, ruang, dan fungsi pada suatu rancangan.",
+  "Saya menikmati menata ruang agar terasa rapi, nyaman, dan efektif.",
+  "Saya peduli pada proporsi dan ukuran saat membuat atau menilai sebuah objek.",
+  "Saya ingin desain memudahkan aktivitas orang di dalam ruangnya.",
+  "Saya percaya keindahan dan kenyamanan dapat dicapai lewat perencanaan yang matang.",
+  "Saya merasa lebih produktif ketika bekerja dalam tim yang terkoordinasi.",
+  "Saya senang mengatur pembagian tugas agar hasil kerja kelompok maksimal.",
+  "Saya terbuka terhadap kritik demi peningkatan kualitas karya.",
+  "Saya menikmati melihat ide kecil berkembang menjadi proyek yang terwujud.",
+  "Saya puas ketika hasil kerja tim diapresiasi secara bersama-sama.",
+  "Saya tertarik menggabungkan seni dengan teknologi dalam satu proyek.",
+  "Saya semangat mencoba perangkat atau perangkat lunak baru untuk bereksperimen.",
+  "Saya percaya masa depan industri kreatif sangat dipengaruhi inovasi digital.",
+  "Saya ingin membuat karya yang dapat diakses dan dinikmati secara digital.",
+  "Saya merasa kinerja saya meningkat saat menggunakan alat bantu digital.",
+  "Saya ingin karya saya tidak hanya indah, tetapi juga bermakna bagi orang lain.",
+  "Saya merasa pekerjaan terbaik adalah yang selaras dengan nilai dan minat pribadi saya.",
+  "Saya lebih menghargai proses belajar daripada sekadar hasil akhir.",
+  "Saya mencari alasan mendasar di balik setiap aktivitas yang saya lakukan.",
+  "Saya ingin dikenal karena karya orisinal yang berdampak positif bagi banyak orang."
 ];
 
 const TOTAL_QUESTIONS = questions.length;
@@ -161,6 +162,7 @@ const pengaruh = [
   {"pplg": 1, "lukis": 1, "dkv": 1, "interior": 1, "animasi": 1, "batik": 1, "kulit": 1, "logam": 1, "kayu": 1, "musik": 1, "tari": 1, "karawitan": 1, "pedalangan": 1, "teater": 1, "film": 1}
 ];
 
+// Urutan ID jurusan (wajib konsisten di seluruh app)
 const jurusanScores = {
   pplg: 0,
   lukis: 0,
@@ -179,6 +181,7 @@ const jurusanScores = {
   film: 0
 };
 
+
 const questionsContainer = document.getElementById("questionsContainer");
 const progressBar = document.getElementById("progressBar");
 const progressText = document.getElementById("progressText");
@@ -187,9 +190,70 @@ const hasilSection = document.getElementById("hasil");
 const hasilContent = document.getElementById("hasilContent");
 const hasilBtn = document.getElementById("hasilBtn");
 const resetBtn = document.getElementById("resetBtn");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const chunkText = document.getElementById("chunkText");
 progressText.textContent = `0/${TOTAL_QUESTIONS} terjawab`;
+hasilBtn.disabled = true;
+
+const userAnswers = new Array(TOTAL_QUESTIONS).fill(0);
+let currentChunk = 0;
+
+function getChunkRange(chunk) {
+  const start = chunk * CHUNK_SIZE;
+  const end = Math.min(start + CHUNK_SIZE, TOTAL_QUESTIONS);
+  return { start, end };
+}
+
+function showChunk(chunk) {
+  currentChunk = Math.max(0, Math.min(chunk, TOTAL_CHUNKS - 1));
+  document.querySelectorAll(".question-card").forEach((card) => {
+    const c = parseInt(card.dataset.chunk, 10);
+    if (c === currentChunk) card.classList.remove("is-collapsed");
+    else card.classList.add("is-collapsed");
+  });
+  updateNavUI();
+  // scroll to first question in this chunk
+  const { start } = getChunkRange(currentChunk);
+  const first = document.querySelector(`.question-card[data-chunk="${currentChunk}"]`);
+  if (first) first.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function firstUnansweredIndexInChunk(chunk) {
+  const { start, end } = getChunkRange(chunk);
+  for (let i = start; i < end; i++) if (!userAnswers[i]) return i;
+  return -1;
+}
+
+function scrollToFirstUnanswered(chunk) {
+  const idx = firstUnansweredIndexInChunk(chunk);
+  if (idx === -1) return;
+  const card = document.querySelectorAll('.question-card')[idx];
+  if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function validateCurrentChunk() {
+  const idx = firstUnansweredIndexInChunk(currentChunk);
+  if (idx !== -1) {
+    alertBox.textContent = "Masih ada pertanyaan yang belum dijawab di bagian ini.";
+    alertBox.classList.remove("hidden");
+    scrollToFirstUnanswered(currentChunk);
+    return false;
+  }
+  alertBox.classList.add("hidden");
+  return true;
+}
+
+function updateNavUI() {
+  if (chunkText) chunkText.textContent = `${currentChunk + 1}/${TOTAL_CHUNKS}`;
+  if (prevBtn) prevBtn.disabled = currentChunk === 0;
+  if (nextBtn) nextBtn.classList.toggle('hidden', currentChunk === TOTAL_CHUNKS - 1);
+  if (hasilBtn) hasilBtn.classList.toggle('hidden', currentChunk !== TOTAL_CHUNKS - 1);
+}
 
 function generateQuestions() {
+  questionsContainer.innerHTML = "";
+
   questions.forEach((question, index) => {
     const card = document.createElement("article");
     card.className = "question-card";
@@ -210,38 +274,58 @@ function generateQuestions() {
 
     const labelsRow = document.createElement("div");
     labelsRow.className = "scale-labels";
+    labelsRow.innerHTML = `
+      <span>Sangat Tidak Setuju</span>
+      <span>Sangat Setuju</span>
+    `;
 
-    const disagreeLabel = document.createElement("span");
-    disagreeLabel.textContent = "Sangat Tidak Setuju";
-    const agreeLabel = document.createElement("span");
-    agreeLabel.textContent = "Sangat Setuju";
-    labelsRow.appendChild(disagreeLabel);
-    labelsRow.appendChild(agreeLabel);
+    const pills = document.createElement("div");
+    pills.className = "number-indicators";
 
-    const choices = document.createElement("div");
-    choices.className = "choices";
-
-    for (let value = 1; value <= 7; value += 1) {
-      const choice = document.createElement("label");
-      choice.className = "choice";
-
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = `q-${index + 1}`;
-      input.value = value;
-      input.addEventListener("change", updateProgress);
-
-      choice.appendChild(input);
-      choices.appendChild(choice);
+    for (let i = 1; i <= 7; i++) {
+      const pill = document.createElement("span");
+      pill.textContent = i;
+      pill.dataset.index = index;
+      pill.dataset.value = i;
+      pill.classList.add("pill");
+      const current = userAnswers[index];
+      if (current === i) {
+        pill.classList.add("active", i <= 3 ? "low" : i === 4 ? "neutral" : "high");
+      }
+      pill.addEventListener("click", () => {
+        // set answer
+        userAnswers[index] = i;
+        // clear siblings
+        pills.querySelectorAll("span").forEach(s => {
+          s.classList.remove("active","low","neutral","high");
+        });
+        // activate this
+        pill.classList.add("active", i <= 3 ? "low" : i === 4 ? "neutral" : "high");
+        alertBox.classList.add("hidden");
+        updateProgress();
+        updateNavUI();
+      });
+      pills.appendChild(pill);
     }
 
     scaleWrapper.appendChild(labelsRow);
-    scaleWrapper.appendChild(choices);
-
+    scaleWrapper.appendChild(pills);
+    
     card.appendChild(header);
     card.appendChild(scaleWrapper);
     questionsContainer.appendChild(card);
   });
+
+  showChunk(0);
+}
+
+function handleAnswer(event) {
+  const nilai = parseInt(event.target.value, 10);
+  const index = parseInt(event.target.dataset.index, 10);
+  userAnswers[index] = nilai;
+  alertBox.classList.add("hidden");
+  updateProgress();
+  updateNavUI();
 }
 
 function resetScores() {
@@ -274,12 +358,19 @@ function collapseChunks() {
 }
 
 function updateProgress() {
-  const answered = document.querySelectorAll('input[type="radio"]:checked').length;
-  const completion = answered / TOTAL_QUESTIONS;
-  progressBar.style.width = `${completion * 100}%`;
+  const answered = userAnswers.filter(Boolean).length;
+  const progress = Math.min(100, (answered / TOTAL_QUESTIONS) * 100);
+  progressBar.style.width = `${progress}%`;
   progressText.textContent = `${answered}/${TOTAL_QUESTIONS} terjawab`;
-  alertBox.classList.add("hidden");
-  revealChunks(answered);
+
+  // Show/hide hasil button
+  if (answered === TOTAL_QUESTIONS) {
+    hasilBtn.disabled = false;
+    hasilBtn.classList.add('active');
+  } else {
+    hasilBtn.disabled = true;
+    hasilBtn.classList.remove('active');
+  }
 }
 
 function jawab(no, nilai) {
@@ -356,31 +447,29 @@ function tampilkanHasil() {
 }
 
 function prosesJawaban() {
-  const selectedInputs = document.querySelectorAll('input[type="radio"]:checked');
-  const answeredAll = selectedInputs.length == TOTAL_QUESTIONS;
-
-  if (!answeredAll || selectedInputs.length < TOTAL_QUESTIONS) {
+  const firstUn = userAnswers.findIndex((v) => !v);
+  if (firstUn !== -1) {
+    const targetChunk = Math.floor(firstUn / CHUNK_SIZE);
+    showChunk(targetChunk);
     alertBox.textContent = "Jawab semua pertanyaan sebelum melihat rekomendasi.";
     alertBox.classList.remove("hidden");
+    scrollToFirstUnanswered(targetChunk);
     return;
   }
 
   resetScores();
 
-  selectedInputs.forEach((selected) => {
-    const [, number] = selected.name.split("-");
-    const questionNumber = parseInt(number, 10);
-    const nilai = parseInt(selected.value, 10) - 4;
-    jawab(questionNumber, nilai);
+  userAnswers.forEach((nilai, index) => {
+    const delta = nilai - 4;
+    jawab(index + 1, delta);
   });
 
   tampilkanHasil();
 }
 
 function resetQuiz() {
-  document.querySelectorAll('input[type="radio"]').forEach((input) => {
-    input.checked = false;
-  });
+  // Reset state
+  userAnswers.fill(0);
   resetScores();
   collapseChunks();
   progressBar.style.width = "0%";
@@ -391,6 +480,16 @@ function resetQuiz() {
     <p>Jawab seluruh 50 pertanyaan untuk membuka analisis personal.</p>
   `;
   resetBtn.classList.add("hidden");
+
+  // Reset all pill selections
+  document.querySelectorAll('.number-indicators').forEach((wrap) => {
+    wrap.querySelectorAll('span').forEach((s) => {
+      s.classList.remove('active','low','neutral','high');
+    });
+  });
+
+  showChunk(0);
+
   window.scrollTo({
     top: document.querySelector(".quiz").offsetTop - 32,
     behavior: "smooth"
@@ -400,3 +499,28 @@ function resetQuiz() {
 generateQuestions();
 hasilBtn.addEventListener("click", prosesJawaban);
 resetBtn.addEventListener("click", resetQuiz);
+
+if (prevBtn) {
+  prevBtn.addEventListener('click', () => {
+    if (currentChunk > 0) showChunk(currentChunk - 1);
+  });
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener('click', () => {
+    if (!validateCurrentChunk()) return;
+    if (currentChunk < TOTAL_CHUNKS - 1) {
+      showChunk(currentChunk + 1);
+    } else {
+      // if last chunk, prompt submit if all answered
+      const firstUn = userAnswers.findIndex((v) => !v);
+      if (firstUn === -1) {
+        document.getElementById('hasil').scrollIntoView({ behavior: 'smooth' });
+      } else {
+        const targetChunk = Math.floor(firstUn / CHUNK_SIZE);
+        showChunk(targetChunk);
+        scrollToFirstUnanswered(targetChunk);
+      }
+    }
+  });
+}

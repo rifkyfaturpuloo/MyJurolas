@@ -151,10 +151,13 @@
           </p>
           <div id="alertBox" class="alert hidden"></div>
           <div id="questionsContainer" class="questions"></div>
-          <div class="panel-footer">
-            <button class="primary-btn full" id="hasilBtn">
-              Tampilkan Rekomendasi
-            </button>
+          <div class="panel-footer" style="display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap;">
+            <button class="ghost-btn small" id="prevBtn">Sebelumnya</button>
+            <span class="chunk-indicator">Bagian <strong id="chunkText">1/5</strong></span>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+              <button class="primary-btn small" id="nextBtn">Selanjutnya</button>
+              <button class="primary-btn small hidden" id="hasilBtn">Tampilkan Rekomendasi</button>
+            </div>
           </div>
         </div>
       </section>
@@ -170,12 +173,41 @@
       </section>
     </main>
 
-    <footer>
-      <p>
-        © 2025 SMKN 12 Surabaya - PPLG SMKN 12 Surabaya · Platform latihan memilih jurusan resmi yang
-        mendukung eksplorasi minat calon siswa.
-      </p>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="https://smkn12surabaya.sch.id/images/logo%20smkn%2012.png" alt="Logo SMKN 12 Surabaya" />
+          <div>
+            <span class="footer-pill">Powered by PPLG ROLAS</span>
+            <h3>My Jurolas</h3>
+            <p>Platform pemetaan minat dan gaya belajar untuk membantu siswa menemukan jurusan yang paling tepat di SMKN 12 Surabaya.</p>
+          </div>
+        </div>
+        <div class="footer-block">
+          <p class="footer-title">Navigasi Cepat</p>
+          <a href="#panduan">Panduan Tes</a>
+          <a href="#tes">Mulai Tes</a>
+          <a href="#hasil">Lihat Hasil</a>
+        </div>
+        <div class="footer-block">
+          <p class="footer-title">Kontak &amp; Kunjungan</p>
+          <ul>
+            <li>Jl. Siwalankerto 1 Permai, Surabaya</li>
+            <li>Email:Coming Soon</li>
+            <li>Telp:Coming Soon</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&amp;© 2025 SMKN 12 Surabaya - PPLG SMKN 12 Surabaya. Seluruh hak cipta dilindungi.</p>
+        <div class="footer-meta">
+          <span>Privasi</span>
+          <span>Syarat Layanan</span>
+          <span>Hubungi Kami</span>
+        </div>
+      </div>
     </footer>
+
 
     <script src="script/main.js"></script>
   </body>
