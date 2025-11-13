@@ -622,9 +622,10 @@ main {
 .ranking-list li .major-name {
   font-weight: 500;
   color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.35;
 }
 
 [data-theme="dark"] .ranking-list li {
