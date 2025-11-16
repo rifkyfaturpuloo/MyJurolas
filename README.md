@@ -22,9 +22,16 @@ My Jurolas adalah aplikasi web interaktif yang membantu calon siswa SMKN 12 Sura
 3. Ikuti panduan di halaman, jawab seluruh pernyataan, lalu tekan **Tampilkan Rekomendasi** untuk melihat hasil.
 
 ## Tim
+<<<<<<< HEAD
 - Rifky Faturrachman Puloo - Programmer Utama (arsitektur soal, logika skoring, integrasi UI).
 - Muhammad Dzikrul Kahfi - UI/UX (menyusun mockup di Figma, merancang layout, warna, serta interaksi).
 - Muhammad Farrel Anugrah Pratama - Asisten Programmer (testing, validasi input, debugging, dan menjaga konsistensi implementasi terhadap desain).
 - Frisheila Martha Apsari - Dokumentasi (penulisan penjelasan, screenshot, pengumpulan laporan).
+=======
+- Rifky Faturrachman Puloo – Programmer utama (arsitektur soal, skoring, integrasi UI).
+- Dzkirul Kahfi – Asisten programmer (validasi input, kontrol progres, pengujian).
+- Farrel Pratama – UI/UX designer (desain modern, responsif, animasi).
+- Frishila – Dokumentasi (penjelasan teknis, visual, laporan akhir).
+>>>>>>> ff2de1997655ed1ecf9d9ab997f5e6ec4fddcf4d
 
 > Catatan: Website ini alat bantu tambahan, bukan satu-satunya penentu jurusan. Kerjakan tes dengan jujur agar hasil lebih akurat.
