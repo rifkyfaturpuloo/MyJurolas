@@ -3,34 +3,42 @@ Bantu Cari Jurusan SMKN 12 Surabaya
 
 1. Tujuan Program
 -----------------
-Menyediakan tes psikometrik netral berisi 50 pernyataan reflektif untuk membantu calon siswa SMKN 12 Surabaya menemukan jurusan paling selaras dengan kepribadian, minat, serta gaya kerjanya dalam suasana profesional dan objektif.
+Memberikan panduan objektif bagi calon siswa untuk mengetahui jurusan paling cocok di SMKN 12 Surabaya melalui 50 pernyataan reflektif yang menilai minat, gaya berpikir, dan preferensi cara belajar.
 
 2. Cara Kerja Sistem Tes
 ------------------------
-1. Pengguna membaca panduan di halaman utama, lalu menjawab 50 pernyataan berskala 1 (Sangat Tidak Setuju) sampai 7 (Sangat Setuju) pada komponen radio berbentuk lingkaran yang terbuka bertahap setiap 10 soal agar fokus tetap terjaga.
-2. Setiap jawaban dihitung dengan rumus `(nilai - 4)` dan disalurkan ke seluruh jurusan melalui struktur `pengaruh` yang menyimpan bobot positif-negatif seimbang untuk setiap pertanyaan.
-3. Ketika tombol **Tampilkan Rekomendasi** ditekan, skor dihitung ulang secara kumulatif, dibandingkan menggunakan operator perbandingan, lalu ditampilkan melalui `innerHTML` lengkap dengan deskripsi, daftar peringkat, serta tombol **Ulangi Tes**.
+1. Pengguna membuka halaman `index.html`, membaca panduan, lalu mengisi skala Likert 1-7 pada 50 soal yang dibagi ke 5 bagian agar fokus terjaga.
+2. Saat sebuah pilihan diklik, nilai jawaban disimpan, progres dihitung ulang, dan indikator soal berwarna menandai jawaban sudah terisi.
+3. Ketika tombol **Tampilkan Rekomendasi** ditekan, jawaban divalidasi. Jika lengkap, setiap nilai diubah menjadi `(nilai - 4)` lalu dikalikan dengan bobot jurusan pada objek `pengaruh` sebelum dijumlahkan ke `jurusanScores`.
+4. Skor akhir diperingkat, hasil podium 3 besar dan daftar lengkap dirender melalui `innerHTML` dengan template literal `${}` dan ditampilkan di panel hasil. Pengguna dapat menekan **Ulangi Tes** untuk mengosongkan jawaban.
 
-3. Operator yang Digunakan
---------------------------
-- Aritmatika: `+`, `-`, `*`, `/` untuk penjumlahan bobot, konversi `(nilai - 4)`, dan perhitungan progres (terjawab / total soal).
-- Assignment: `=`, `+=`, dan `const` saat menginisialisasi maupun memperbarui skor jurusan.
-- Comparison: `>`, `<`, `==`, `!==` pada validasi jumlah jawaban serta proses memilih jurusan dengan skor tertinggi.
+3. Pemenuhan Operator & Ketentuan
+---------------------------------
+- **Input user**: form radio 1-7 pada section tes (`index.html`) di-handle oleh event listener di `script/main.js`.
+- **Operator aritmatika**: `(answered / TOTAL_QUESTIONS) * 100`, `nilai - 4`, `jurusanScores[key] += efek[key] * nilai`, `Math.pow`, dan `Math.sqrt` untuk perhitungan skor, progres, serta deteksi pola jawaban.
+- **Assignment operator**: `=`, `+=`, `const`, `let`, dan `userAnswers.fill(0)` ketika menyimpan jawaban maupun memperbarui skor.
+- **Comparison & logika**: `if (answered === TOTAL_QUESTIONS)`, `if (jurusanScores[key] > maxScore)`, `unique === 1`, `lrun >= 20`, dll untuk validasi input dan pemilihan jurusan terbaik.
+- **innerHTML + template literal**: panel hasil dirender dengan `hasilContent.innerHTML = \`...\`` yang memanfaatkan `${rankingList}` dan `${jurusanLabels[key]}`.
+- **Struktur folder**: HTML di root, CSS pada `style/style.css`, JavaScript di `script/main.js`, aset logo di folder `Logo Jurusan SMKN 12 Surabaya`, serta dokumentasi `penjelasan.txt`.
 
 4. Struktur Folder
 ------------------
-- `index.html` - struktur UI (header dengan logo, hero, panel tes, hasil, footer).
-- `style/style.css` - tema biru tua `#204474`, aksen kuning `#ECEC74`, animasi transisi, dan layout responsif.
-- `script/main.js` - daftar 50 soal netral, pemetaan bobot 15 jurusan, logika progres, hasil, dan fungsi reset.
-- `penjelasan.txt` - dokumentasi singkat proyek (file ini).
+- `index.html` - kerangka UI (header, hero, quiz, hasil, footer).
+- `style/style.css` - styling responsif, dark mode, dan komponen visual.
+- `script/main.js` - data soal, bobot jurusan, logika kuis, validasi, dan rendering hasil.
+- `penjelasan.txt` - dokumentasi (berkas ini).
 
-5. Screenshot Hasil (Placeholder)
---------------------------------
-![Placeholder hasil](https://via.placeholder.com/900x520?text=Preview+Bantu+Cari+Jurusan)
+6. Preview Website
+-----------------
+https://myjurolas.vercel.app/
 
-6. Anggota & Peran
+7. Preview Figma Design
+-----------------
+https://www.figma.com/design/dCXd83IzpsA08QkwCNjBby/UI-UX-MyJuRolas?node-id=0-1&t=kUMEdSxdIkthqH8W-1
+
+8. Anggota & Peran
 ------------------
 - Rifky Faturrachman Puloo - Programmer Utama (arsitektur soal, logika skoring, integrasi UI).
-- Dzkirul Kahfi - Asisten Programmer (validasi input, kontrol progres, pengujian fungsional).
-- Farrel Pratama - UI/UX Designer (desain modern biru-kuning, responsif, animasi transisi).
-- Frishila - Dokumentasi (penjelasan teknis, screenshot, dan penyusunan laporan akhir).
+- Muhammad Dzikrul Kahfi - UI/UX (menyusun mockup di Figma, merancang layout, warna, serta interaksi).
+- Muhammad Farrel Anugrah Pratama - Asisten Programmer (testing, validasi input, debugging, dan menjaga konsistensi implementasi terhadap desain).
+- Frisheila Martha Apsari - Dokumentasi (penulisan penjelasan, screenshot, pengumpulan laporan).
